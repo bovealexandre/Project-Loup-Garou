@@ -17,10 +17,18 @@ const io = socketIO(server)
 io.on('connection', socket => {
   console.log('User connected')
   
-
-  socket.on('message', ()=>{
+io.on('connection', function(socket){
+  socket.emit('chat message', 'an user connected');
+  socket.on('chat message', function(msg){
+      socket.emit('chat message', msg);
+  });
+  socket.on('disconnect', function(){
+      console.log('chat message', 'user disconnected');
+  });
+});
+  // socket.on('message', ()=>{
     
-  })
+  // })
   socket.on('disconnect', () => {
     console.log('user disconnected')
   })
