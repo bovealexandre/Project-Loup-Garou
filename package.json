@@ -36,5 +36,21 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.11"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bovealexandre/Project-Loup-Garou.git"
+  },
+  "keywords": [
+    "loup",
+    "garou"
+  ],
+  "author": "Alex, Nabil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bovealexandre/Project-Loup-Garou/issues"
+  },
+  "homepage": "https://github.com/bovealexandre/Project-Loup-Garou#readme"
 }
