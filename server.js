@@ -12,22 +12,38 @@ app.use(bodyParser.urlencoded({extended: false,limit: '50mb'}));
 
 app.use(express.static(path.join(__dirname, 'build')));
 
+const games = {};
+
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname + 'public/index.html'));
 });
 
+const ex = (fct) => {
+  return (...args) => {
+    try {
+      return fct(...args);
+    } catch(e) {
+      console.error("exception", e);
+    }
+  }
+};
+
+io.on('connection', ex(socket=>{
+  console.log('User connected')
+  socket.on('create game', socket => {
+    
+    
+  
+    socket.on('message', ()=>{
+      
+    })
+    socket.on('disconnect', () => {
+      console.log('user disconnected')
+    })
+  })
+}))
 
 // This is what the socket.io syntax is like, we will work this later
-io.on('connection', socket => {
-  console.log('User connected')
-  
 
-  socket.on('message', ()=>{
-    
-  })
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
-  })
-})
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
